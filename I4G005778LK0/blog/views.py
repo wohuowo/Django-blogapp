@@ -5,23 +5,26 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import UpdateView,DeleteView
+from django.views.generic.edit import UpdateView, DeleteView
 from .models import Post
 
 
 class PostCreateView(CreateView):
-    #specifying model for create view
+    # specifying model for create view
     model = Post
-    #specifying fields to be displayed
+    # specifying fields to be displayed
     fields = "__all__"
     success_url = reverse_lazy("blog:all")
 
+
 class PostListView(ListView):
-    #specifying the model for list view
+    # specifying the model for list view
     model = Post
+
 
 class PostDetailView(DetailView):
     model = Post
+
 
 class PostUpdateView(UpdateView):
     model = Post
@@ -29,7 +32,8 @@ class PostUpdateView(UpdateView):
     fields = "__all__"
     success_url = reverse_lazy("blog:all")
 
+
 class PostDeleteView(DeleteView):
-    model= Post
-    fields ="__all__"
-    success_url = reverse_lazy("blog:all")    
+    model = Post
+    fields = "__all__"
+    success_url = reverse_lazy("blog:all")
